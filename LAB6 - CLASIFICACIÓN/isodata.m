@@ -25,44 +25,10 @@ function img2 = isodata(img1, Cat)
             end
         end
     end
-    
-%     b = 0;
-%     bandas = zeros(1, B);
-%     distancias = zeros(1, Cat);
-%     grupos = cell(1, Cat);
-%     temp = cell(1, Cat);
-%     while b == 0
-%         for f = 1:F
-%             for c = 1:C
-%                 for banda = 1:B
-%                     bandas(banda) = img1(f, c, banda);
-%                 end
-%                 nd = double(bandas);
-%                 if prod(nd) > 0
-%                     for l = 1:length(centroides)
-%                         distancias(l) = norm(nd - centroides{l});
-%                     end
-%                     distanciaMenor = min(distancias);
-%                     categoria = find(distancias == distanciaMenor, 1, 'last');
-%                     img2(f, c, :) = colores{categoria};
-%                     grupos{categoria} = {grupos{categoria} ; nd};
-%                 end
-%             end
-%         end
-%         for l = 1:length(centroides)
-%             centroides{l} = mean(centroides{l});
-%         end
-%         if cellfun(@isequal, grupos, temp)
-%             b = 1;
-%         end
-%         temp = grupos;
-%         imshow(img2);
-%     end
     bandas = zeros(1, B);
     distancias = zeros(1, Cat);
     grupos = cell(1, Cat);
     for n = 1:10
-        iteracion = iteracion + 1;
         for f = 1:F
             for c = 1:C
                 for banda = 1:B
@@ -83,6 +49,6 @@ function img2 = isodata(img1, Cat)
         for l = 1:length(centroides)
             centroides{l} = mean(centroides{l});
         end
-        imshow(img2);
     end
+    imshow(img2);
 end
