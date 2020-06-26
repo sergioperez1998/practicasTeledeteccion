@@ -6,13 +6,12 @@ function im2 =filtroMedianaMejorado(im)
             en = double(im(f-1:f+1, c-1:c+1));
             m = min(min(en));
             M = max(max(en));
-            nd = im(f,c);
-            if nd == m || nd == M
-                ndp = median(reshape(en,1,9));
+            nd = median(reshape(en,1,9));
+            if nd - m >= 40 || M - nd >= 40
+                im2(f,c) = nd;
             else
-                ndp = nd;
+                im2(f,c) = im(f,c);
             end
-            im2(f,c) = ndp;
        end
     end
     imshow(im)

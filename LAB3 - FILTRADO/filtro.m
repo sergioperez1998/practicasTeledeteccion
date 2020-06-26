@@ -4,7 +4,7 @@ function im2=filtro(im, cf)
     cfN = cf;
     for fila = 1:Fila
         for columna = 1:Columna
-            cfN(fila,columna) = double(cf(fila,columna)/sumatorio)
+            cfN(fila,columna) = double(cf(fila,columna)/sumatorio);
         end
     end
     [F,C] = size(im);

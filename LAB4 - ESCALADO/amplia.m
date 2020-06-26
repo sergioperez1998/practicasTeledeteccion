@@ -19,6 +19,8 @@ function img2 = amplia(img1)
        fnd = (f1+f2)/2;
        img2(f, :) = fnd;
     end
+    imshow(img1);
+    figure(2)
     img2 = uint8(img2);
     imshow(img2);
 end
